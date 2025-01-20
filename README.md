@@ -1,54 +1,94 @@
-<header>
-
-<!--
-  <<< Author notes: Course header >>>
-  Include a 1280×640 image, course title in sentence case, and a concise description in emphasis.
-  In your repository settings: enable template repository, add your 1280×640 social image, auto delete head branches.
-  Add your open source license, GitHub uses MIT license.
--->
-
-# GitHub Pages
-
-_Create a site or blog from your GitHub repositories with GitHub Pages._
-
-</header>
-
-<!--
-  <<< Author notes: Step 1 >>>
-  Choose 3-5 steps for your course.
-  The first step is always the hardest, so pick something easy!
-  Link to docs.github.com for further explanations.
-  Encourage users to open new tabs for steps!
--->
-
-## Step 1: Enable GitHub Pages
-
-_Welcome to GitHub Pages and Jekyll :tada:!_
-
-The first step is to enable GitHub Pages on this [repository](https://docs.github.com/en/get-started/quickstart/github-glossary#repository). When you enable GitHub Pages on a repository, GitHub takes the content that's on the main branch and publishes a website based on its contents.
-
-### :keyboard: Activity: Enable GitHub Pages
-
-1. Open a new browser tab, and work on the steps in your second tab while you read the instructions in this tab.
-1. Under your repository name, click **Settings**.
-1. Click **Pages** in the **Code and automation** section.
-1. Ensure "Deploy from a branch" is selected from the **Source** drop-down menu, and then select `main` from the **Branch** drop-down menu.
-1. Click the **Save** button.
-1. Wait about _one minute_ then refresh this page (the one you're following instructions from). [GitHub Actions](https://docs.github.com/en/actions) will automatically update to the next step.
-   > Turning on GitHub Pages creates a deployment of your repository. GitHub Actions may take up to a minute to respond while waiting for the deployment. Future steps will be about 20 seconds; this step is slower.
-   > **Note**: In the **Pages** of **Settings**, the **Visit site** button will appear at the top. Click the button to see your GitHub Pages site.
-
-<footer>
-
-<!--
-  <<< Author notes: Footer >>>
-  Add a link to get support, GitHub status page, code of conduct, license link.
--->
+Here's a `README.md` based on your Python script:
 
 ---
 
-Get help: [Post in our discussion board](https://github.com/orgs/skills/discussions/categories/github-pages) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
+# Advanced HTTP Attack Script
 
-&copy; 2023 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+This Python script simulates high-load HTTP requests to a target WiFi router or server. It's designed to cause disruptions on vulnerable WiFi connections, particularly those using localhost-dependent gateways, like Pisowifi. The script demonstrates a potential attack vector known as HTTP request smuggling.
 
-</footer>
+**Important**: This tool is meant for educational purposes only. Use it only on networks where you have explicit consent. Unauthorized use could be illegal and harmful.
+
+---
+
+## Features
+
+- Simulates high-load HTTP requests using a crafted attack (HTTP request smuggling).
+- Supports both HTTP and HTTPS protocols (with SSL).
+- Allows customization of attack parameters such as the number of requests, target IP, and port.
+- Uses multi-threading to send requests simultaneously, enhancing the attack's effectiveness.
+- Progress bar for tracking attack progress.
+- Detailed status updates with real-time feedback on request success/failure.
+
+---
+
+## Requirements
+
+Before running the script, ensure you have the following installed:
+
+- Python 3.x
+- Required Python libraries:
+  - `tqdm`: For displaying a progress bar during execution.
+  - `colorama`: For colorful console output.
+  - `rich`: For rich text and progress bar handling.
+  
+Install the dependencies using pip:
+```bash
+pip install tqdm colorama rich
+```
+
+---
+
+## Usage
+
+1. Clone the repository or download the script file.
+2. Run the script in your terminal:
+    ```bash
+    python3 attack_script.py
+    ```
+
+3. Input the following when prompted:
+    - **Target WiFi Router Gateway URL** (e.g., `192.168.1.1`)
+    - **Target Port** (Default: `80`)
+    - **Total Request Limit** (The number of requests you wish to send)
+
+The script will start simulating requests and display progress in the terminal.
+
+---
+
+## How it Works
+
+1. **Initial Setup**:
+    - The script prompts for the target router's URL and port.
+    - It resolves the router's hostname to an IP address.
+    - It validates the URL and port input before continuing.
+
+2. **Attack Process**:
+    - The script uses multi-threading to generate and send multiple HTTP requests.
+    - The requests are crafted with HTTP request smuggling techniques (e.g., chunked transfer encoding and header manipulation).
+    - If an error occurs (e.g., connection failure), the script automatically restarts the attack threads.
+
+3. **Attack Termination**:
+    - After the attack completes, the script prints a summary of the successful requests and any errors encountered.
+
+---
+
+## Disclaimer
+
+This script simulates an HTTP attack and may cause disruptions to vulnerable networks. **Use responsibly** and **only with permission**. The author takes no responsibility for the misuse of this tool.
+
+- **Author**: Cyber Unice / Xyrax / Kyla / Psuedo
+
+---
+
+## Credits
+
+This script was developed and contributed by **Cyber Unice**, **Xyrax**, **Kyla**, and **Psuedo**. We acknowledge the importance of ethical hacking and the responsible use of cybersecurity tools.
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
