@@ -1,6 +1,4 @@
-Here's a `README.md` based on your Python script:
 
----
 
 # Advanced HTTP Attack Script
 
